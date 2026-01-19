@@ -1,7 +1,9 @@
 import { ProductGrid } from '../components/public/ProductGrid'
 import { useProducts } from '../hooks/useProducts'
 import { Pagination } from '../components/shared/Pagination'
+import { ProductModal } from '../components/public/ProductModal'
 import { Search, Filter } from 'lucide-react'
+import { useState } from 'react'
 
 export const Catalog = () => {
   const { 
@@ -17,6 +19,19 @@ export const Catalog = () => {
     filters, 
     updateFilters 
   } = useProducts()
+  
+  const [selectedProduct, setSelectedProduct] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleProductClick = (product) => {
+    setSelectedProduct(product)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setTimeout(() => setSelectedProduct(null), 300) // Clear product after animation
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
@@ -71,7 +86,7 @@ export const Catalog = () => {
           </div>
         ) : (
           <>
-            <ProductGrid products={products} loading={loading} />
+            <ProductGrid products={products} loading={loading} onProductClick={handleProductClick} />
             
             {!loading && products.length > 0 && totalPages > 1 && (
               <div className="mt-8 flex justify-center">
@@ -94,6 +109,13 @@ export const Catalog = () => {
             <p className="text-gray-500">Intenta con otro término de búsqueda</p>
           </div>
         )}
+
+        {/* Product Modal */}
+        <ProductModal
+          product={selectedProduct}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
       </div>
     </div>
   )

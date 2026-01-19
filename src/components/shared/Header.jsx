@@ -13,25 +13,25 @@ export const Header = () => {
   }
 
   return (
-    <header className="bg-gradient-to-r from-pink-50 via-purple-50 to-rose-50 shadow-sm sticky top-0 z-50">
+    <header className="bg-linear-to-r from-pink-50 via-purple-50 to-rose-50 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-linear-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
               🌸 Catálogo Flores
             </h1>
           </div>
 
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-pink-600 transition-colors font-medium">
+            <Link to="/" className="text-gray-700 hover:text-pink-600 transition-colors font-extrabold">
               Inicio
             </Link>
-            <Link to="/catalog" className="text-gray-700 hover:text-pink-600 transition-colors font-medium">
+            <Link to="/catalog" className="text-gray-700 hover:text-pink-600 transition-colors font-extrabold">
               Catálogo
             </Link>
-            <Link to="/admin" className="text-gray-600 hover:text-pink-600 transition-colors text-sm">
+            {/* <Link to="/admin" className="text-gray-600 hover:text-pink-600 transition-colors text-sm">
               Admin
-            </Link>
+            </Link> */}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -77,13 +77,13 @@ export const Header = () => {
             >
               Catálogo
             </Link>
-            <Link
+            {/* <Link
               to="/admin"
               className="block py-2 text-gray-600 hover:text-pink-600 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Admin
-            </Link>
+            </Link> */}
             <button
               onClick={handleCartClick}
               className="flex items-center space-x-2 py-2 text-gray-600 hover:text-pink-600 transition-colors"
