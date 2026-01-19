@@ -9,7 +9,7 @@ import { supabase } from '../services/supabaseClient'
 
 export const Admin = () => {
   const { isAuthenticated, login, logout, loading } = useAuth()
-  const { products, refetch, totalCount, page, totalPages } = useProducts()
+  const { products, refetch, totalCount, page, totalPages, goToPage, nextPage, prevPage } = useProducts()
   const { success, error: toastError } = useToast()
   const [showForm, setShowForm] = useState(false)
   const [editingProduct, setEditingProduct] = useState(null)
@@ -114,6 +114,9 @@ export const Admin = () => {
         onAddProduct={handleAddProduct}
         onLogout={logout}
         onFetchAll={() => refetch()}
+        onPageChange={goToPage}
+        onNextPage={nextPage}
+        onPrevPage={prevPage}
       />
 
       {showForm && (

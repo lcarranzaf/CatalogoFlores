@@ -2,7 +2,7 @@ import { LogOut, Plus, Package, DollarSign } from 'lucide-react'
 import { ProductList } from './ProductList'
 import { Pagination } from '../shared/Pagination'
 
-export const Dashboard = ({ products, totalCount, page, totalPages, onEditProduct, onDeleteProduct, onAddProduct, onLogout, onFetchAll }) => {
+export const Dashboard = ({ products, totalCount, page, totalPages, onEditProduct, onDeleteProduct, onAddProduct, onLogout, onFetchAll, onPageChange, onNextPage, onPrevPage }) => {
   const totalProducts = products.length
   const averagePrice = products.length > 0
     ? products.reduce((sum, p) => sum + p.price, 0) / products.length
@@ -116,7 +116,12 @@ export const Dashboard = ({ products, totalCount, page, totalPages, onEditProduc
                 currentPage={page}
                 totalPages={totalPages}
                 onPageChange={(newPage) => {
-                  onFetchAll ? onFetchAll() : console.log('Page:', newPage)
+                  // Si hay una función de paginación personalizada, úsala
+                  if (typeof onPageChange === 'function') {
+                    onPageChange(newPage)
+                  } else if (onFetchAll) {
+                    onFetchAll()
+                  }
                 }}
               />
             </div>
