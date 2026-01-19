@@ -18,7 +18,7 @@ export const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <h1 className="text-2xl font-bold bg-linear-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-              🌸 Catálogo Flores
+              🌸 Catálogo Rosas Eternas
             </h1>
           </div>
 
