@@ -9,23 +9,23 @@ export const Home = () => {
   const featuredProducts = products.slice(0, 8)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
-      <section className="bg-gradient-to-r from-pink-100 via-purple-100 to-rose-100 py-16 md:py-24">
+    <div className="min-h-screen bg-linear-to-b from-pink-50 via-white to-purple-50">
+      <section className="bg-linear-to-r from-pink-100 via-purple-100 to-rose-100 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
               Descubre Flores que
-              <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent block mt-2">
+              <span className="bg-linear-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent block mt-2">
                 Enamoran el Corazón
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Arreglos florales frescos y hermosos para cada ocasión especial.
+              Arreglos de rosas eternas hermosas para cada ocasión especial.
               Envíos rápidos y la mejor calidad.
             </p>
             <Link
               to="/catalog"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-pink-200 hover:scale-105"
+              className="inline-flex items-center space-x-2 bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-pink-200 hover:scale-105"
             >
               <span>Ver Catálogo</span>
               <ArrowRight className="w-5 h-5" />
