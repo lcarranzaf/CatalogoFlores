@@ -4,6 +4,7 @@ import { useCart } from '../../hooks/useCart'
 import { useToast } from '../../hooks/useToast'
 import { parseDetails } from '../../utils/detailIconParser'
 import { ZoomableImage } from './ZoomableImage'
+import { InlineLoader } from '../shared/FlowerLoader'
 
 export const ProductModal = ({ product, isOpen, onClose }) => {
   const { id, name, description, price, image_url, type, details } = product || {}
@@ -80,7 +81,20 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
     setIsZoomOpen(false)
   }
 
-  if (!isOpen || !product) return null
+  if (!isOpen) return null
+  
+  if (!product) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm animate-fade-in" />
+        <div className="relative min-h-screen flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl shadow-2xl p-8">
+            <InlineLoader size="large" color="pink" message="Cargando producto..." />
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div 
@@ -90,12 +104,12 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
       {/* Backdrop */}
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm animate-fade-in" />
       
-      {/* Modal container */}
+      {/* Modal container - Different for mobile vs desktop */}
       <div className="relative min-h-screen flex items-center justify-center p-4">
-        <div className="relative bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scale-in">
+        <div className="relative bg-white rounded-3xl shadow-2xl max-w-4xl w-full animate-scale-in">
           
           {/* Header */}
-          <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-6 py-4 flex items-center justify-between z-10">
+          <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-6 py-4 flex items-center justify-between z-10 rounded-t-3xl">
             <div className="flex items-center gap-3">
               <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${
                 type === 'caja'
@@ -116,10 +130,10 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
             </button>
           </div>
 
-          {/* Content */}
-          <div className="grid md:grid-cols-2 gap-6 p-6">
+          {/* Content - Mobile: stacked, Desktop: side-by-side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
             
-            {/* Image section */}
+            {/* Image section - Fixed height on desktop, auto on mobile */}
             <div className="space-y-4">
               <div className="relative group">
                 <div 
@@ -134,6 +148,9 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
                       onError={(e) => {
                         e.target.style.display = 'none'
                         e.target.nextSibling.style.display = 'flex'
+                      }}
+                      onLoad={() => {
+                        // Image loaded successfully
                       }}
                     />
                   ) : null}
@@ -194,8 +211,8 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Info section */}
-            <div className="space-y-6">
+            {/* Info section - Scrollable on mobile, normal on desktop */}
+            <div className="space-y-6 md:overflow-y-auto md:max-h-[calc(100vh-200px)]">
               {/* Description */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Descripción</h3>
@@ -242,10 +259,11 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
                 </button>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
-
+  )
       {/* Zoom Modal */}
       {isZoomOpen && image_url && (
         <ZoomableImage
@@ -254,6 +272,5 @@ export const ProductModal = ({ product, isOpen, onClose }) => {
           onClose={handleCloseZoom}
         />
       )}
-    </div>
-  )
+  
 }

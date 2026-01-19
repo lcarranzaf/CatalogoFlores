@@ -2,6 +2,7 @@ import { ProductGrid } from '../components/public/ProductGrid'
 import { useProducts } from '../hooks/useProducts'
 import { Pagination } from '../components/shared/Pagination'
 import { ProductModal } from '../components/public/ProductModal'
+import { PageLoader } from '../components/shared/FlowerLoader'
 import { Search, Filter } from 'lucide-react'
 import { useState } from 'react'
 
@@ -34,7 +35,7 @@ export const Catalog = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-purple-50">
+    <div className="min-h-screen bg-linear-to-b from-pink-50 via-white to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">
@@ -84,9 +85,11 @@ export const Catalog = () => {
           <div className="text-center py-16 bg-red-50 rounded-2xl">
             <p className="text-red-600 text-lg">Error: {error}</p>
           </div>
+        ) : loading && products.length === 0 ? (
+          <PageLoader message="Cargando catálogo de flores..." />
         ) : (
           <>
-            <ProductGrid products={products} loading={loading} onProductClick={handleProductClick} />
+            <ProductGrid products={products} loading={false} onProductClick={handleProductClick} />
             
             {!loading && products.length > 0 && totalPages > 1 && (
               <div className="mt-8 flex justify-center">

@@ -37,24 +37,24 @@ export const Home = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl hover:shadow-lg transition-all duration-300">
-              <div className="bg-gradient-to-br from-pink-500 to-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-8 bg-linear-to-br from-pink-50 to-purple-50 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="bg-linear-to-br from-pink-500 to-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Frescura Garantizada</h3>
-              <p className="text-gray-600">Flores seleccionadas cada mañana para garantizar su frescura y durabilidad.</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Detalles que Hablan de Amor 💐💖</h3>
+              <p className="text-gray-600">Arreglos florales creados para expresar amor, detalle y elegancia.</p>
             </div>
 
-            <div className="text-center p-8 bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl hover:shadow-lg transition-all duration-300">
-              <div className="bg-gradient-to-br from-rose-500 to-pink-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-8 bg-linear-to-br from-rose-50 to-pink-50 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="bg-linear-to-br from-rose-500 to-pink-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Truck className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Envío Rápido</h3>
               <p className="text-gray-600">Entregamos tu pedido en tiempo récord para que disfrutes de tus flores.</p>
             </div>
 
-            <div className="text-center p-8 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl hover:shadow-lg transition-all duration-300">
-              <div className="bg-gradient-to-br from-purple-500 to-indigo-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-8 bg-linear-to-br from-purple-50 to-indigo-50 rounded-2xl hover:shadow-lg transition-all duration-300">
+              <div className="bg-linear-to-br from-purple-500 to-indigo-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Hecho con Amor</h3>
@@ -64,7 +64,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-white to-pink-50">
+      <section className="py-16 bg-linear-to-b from-white to-pink-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -80,7 +80,7 @@ export const Home = () => {
           <div className="text-center mt-12">
             <Link
               to="/catalog"
-              className="inline-flex items-center space-x-2 border-2 border-pink-500 text-pink-600 hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-500 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300"
+              className="inline-flex items-center space-x-2 border-2 border-pink-500 text-pink-600 hover:bg-linear-to-r hover:from-pink-500 hover:to-purple-500 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300"
             >
               <span>Ver Todo el Catálogo</span>
               <ArrowRight className="w-5 h-5" />
